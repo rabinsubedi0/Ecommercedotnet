@@ -1,0 +1,21 @@
+﻿body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.dashboard {
+    background-color: rgba(255, 255, 255, .4);
+    overflow: hidden;
+    border:1px solid silver;
+}
+.items a{
+    font-size:20px; 
+    color:black;
+}
+img{
+    margin-left:40px;
+}
+    
+/*product create*/
+.crt{
+    background:silver;
+}

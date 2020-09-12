@@ -1,0 +1,22 @@
+﻿body {
+}
+
+#profile{
+    width:70%;
+}
+#email {
+    width: 70%;
+}
+#change-password {
+width: 70%;
+}
+
+#external-login {
+    width: 70%;
+}
+#two-factor {
+    width: 100%;
+}
+#personal-data {
+    width: 70%;
+}

@@ -1,0 +1,90 @@
+﻿body {
+}
+
+/*signininbuttons*/
+#SigninwithFacebook {
+    width: 100%;
+    background: #ff3300;
+    border-radius: 15px;
+    font-size: 18px;
+    color: whitesmoke;
+    text-align:center
+}
+#SigninwithFacebook:hover {
+        background: #0000ff;
+}
+
+#SigninwithGoogle {
+        width: 100%;
+        background: #000066;
+        border-radius: 15px;
+        font-size: 18px;
+        color: whitesmoke;
+        text-align: center
+}
+#SigninwithGoogle:hover {
+    background: #9933ff
+}
+
+#SigninwithTwitter {
+        width: 100%;
+        background: #0099cc;
+        border-radius: 15px;
+        font-size: 18px;
+        color: whitesmoke;
+ }
+#SigninwithTwitter:hover {
+        background: #ff99cc;
+}
+#SigninwithLinkedin {
+    width: 100%;
+    background: #ff0000;
+    border-radius: 15px;
+    font-size: 18px;
+    color: whitesmoke;
+}
+    #SigninwithLinkedin:hover {
+        background: #66ff99;
+    }
+
+#Login {
+    width: 100%;
+    background:;
+    border-radius: 15px;
+    font-size: 18px;
+    color: whitesmoke;
+}
+/*close button css*/
+
+/*manager size of box*/
+#localloging{
+    margin-left:80px;
+}
+/*close size*/
+
+/*signup form design*/
+
+
+#signupbutton {
+    width: 100%;
+}
+#or{
+    margin-top:30px;
+}
+
+#facebooklogo {
+    height: 40px;
+    margin-top: -0px;
+}
+#googlelogo {
+    height: 40px;
+    margin-left:150px;
+    margin-top:-0px;
+}
+
+#twitterlogo {
+    height: 40px;
+    margin-left: 160px;
+    margin-top:-0px;
+}
+/*close signup design*/ 

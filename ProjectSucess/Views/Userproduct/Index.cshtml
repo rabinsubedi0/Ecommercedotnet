@@ -1,0 +1,109 @@
+﻿@model IEnumerable<ProjectSucess.Models.Category>
+
+<link href="~/css/crs.css" rel="stylesheet" />
+<link href="~/css/site.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+
+<div class="search" id="srbmt">
+    <input type="text" id="input" class="searchTerm text-black" placeholder="Search Ghardailo Product">
+    <button type="submit" class="searchButton">
+        <i class="fa fa-search"></i>
+    </button>
+</div>
+
+<section class="  bg-white" id="producsection">
+    @foreach (var category in Model)
+    {
+        <h5>@category.CategoryName</h5>
+
+        <section>
+            <div class="">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div id="CategoryId" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                @foreach (var pro in category.TotalProducts)
+                                {
+
+
+                                    @if (category.TotalProducts.IndexOf(pro) == 0)
+                                    {
+
+
+
+                                        <div class="carousel-item active ">
+                                            <div class="col-sm-4 col-md-3">
+                                                <div class="try" style="width: 300px; margin:auto;">
+                                                    <img src="~/Images/@pro.ImageName" alt="Alternate Text" id="makuri" />
+                                                    <div class="card-body">
+                                                        <h4 class="text-center">@pro.ProductName</h4>
+                                                        <p class="text-center">@pro.ProductPrice</p>
+                                                        <a class="btn " asp-controller="Userproduct" asp-action="Buy" asp-route-id="@pro.ProductId" id="mak">Buy Now</a>
+                                                        <a class="btn btn-warning" asp-controller="Userproduct" asp-action="Checkout" asp-route-id="@pro.ProductId" id="addtocart">Add to cart </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+
+                                    else
+                                    {
+                                        <div class="carousel-item  ">
+                                            <div class="">
+                                                <div class="row">
+                                                    <div class="col-sm-4 col-md-3">
+                                                        <div class="" style="width: 300px; margin:auto;">
+                                                            <img src="~/Images/@pro.ImageName" alt="Alternate Text" id="makuri" />
+                                                            <div class="card-body">
+                                                                <h4 class="text-center">@pro.ProductName</h4>
+                                                                <p class="text-center">@pro.ProductPrice</p>
+                                                                <a class="btn btn-primary" asp-controller="Userproduct" asp-action="Buy" asp-route-id="@pro.ProductId" id="mak">Buy Now</a>
+                                                                <a class="btn btn-warning" asp-controller="Userproduct" asp-action="Buy" asp-route-id="@pro.ProductId" id="addtocart">Add to cart </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                            <a class="carousel-control-prev" href="#CategoryId" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#CategoryId" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </section>
+
+
+   
+
+    }
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

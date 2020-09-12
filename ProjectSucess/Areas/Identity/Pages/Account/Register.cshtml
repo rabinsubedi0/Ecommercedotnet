@@ -1,0 +1,57 @@
+﻿@page
+@model RegisterModel
+
+
+<link href="~/css/LoginPage.css" rel="stylesheet" />
+<div class="container">
+    <div class="row justify-content-md-center">
+
+        <div class="col-md-5">
+            <div class="">
+                <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                    <h4>Welcome! <br /> Create a new account.</h4>
+                    <hr />
+                    <div asp-validation-summary="All" class="text-danger"></div>
+
+                    @*<div class="form-group">
+                        <label>Name</label>
+                        <input asp-for="Input.FirstName" class="form-control" />
+                        <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+                    </div>*@
+
+                    <div class="form-group">
+                        <label asp-for="Input.Email"></label>
+                        <input asp-for="Input.Email" class="form-control" />
+                        <span asp-validation-for="Input.Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Input.Password"></label>
+                        <input asp-for="Input.Password" class="form-control" />
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Input.ConfirmPassword"></label>
+                        <input asp-for="Input.ConfirmPassword" class="form-control" />
+                        <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                    </div>
+                    <button id="signupbutton" type="submit" class="btn btn-primary">Register</button>
+
+                    <p class="text-center" id="or">OR</p>
+                    <div>
+                        <a href="https://www.facebook.com/"> <img src="~/img/facebook (1).png" id="facebooklogo" alt="facebook logo" /> </a>
+                        <a href="https://www.google.com/"><img src="~/img/ui.png" id="googlelogo" alt="google logo" /></a>
+                        <a href="https://www.twitter.com/"><img src="~/img/twitter (4).png" id="twitterlogo" alt="twitter logo" /></a>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

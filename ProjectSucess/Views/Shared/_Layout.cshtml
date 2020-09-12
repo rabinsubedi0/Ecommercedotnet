@@ -1,0 +1,116 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] Ghardailo</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+
+   
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+</head>
+<body >
+  
+        <nav class="navbar navbar-expand-sm subnavbar">
+
+            @if (SignInManager.IsSignedIn(User))
+            {
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav mr-auto">
+
+                        <i class="fa fa-phone"> +977 9867826013  <i class=" ml-2  fa fa-facebook"></i> <i class="ml-3 fa fa-instagram"></i> <i class="ml-3 fa fa-twitter"></i> </i>
+
+                    </ul>
+                    <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
+                    <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                        <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+                    </form>
+                    <a class="nav-link text-dark  fa fa-shopping-bag fa-1.5x" asp-area="Identity" asp-page="/Account/Login"></a>
+
+                </div>
+            }
+            else
+            {
+                <div class="collapse navbar-collapse" id="sdh">
+                    <ul class="navbar-nav mr-auto">
+
+                        <i class="fa fa-phone"> +977 9867826013 <i class=" ml-2  fa fa-facebook"></i> <i class="ml-3 fa fa-instagram"></i> <i class="ml-3 fa fa-twitter"></i> </i>
+
+                    </ul>
+
+                    <form class="form-inline my-2 my-lg-0 subnavbar">
+                        <a class="nav-link text-dark  fa fa-user" asp-area="Identity" asp-page="/Account/Login">Login</a>
+                        <a class="nav-link text-dark  fa fa-users" asp-area="Identity" asp-page="/Account/Register">Register</a>
+
+                    </form>
+                </div>
+            }
+
+
+        </nav>
+   
+        <header>
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white h-50 ">
+
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#lolo" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <img src="~/img/gfffj.png" height="70" class="mb-2" alt="Ghar_Dailo_Logo" id="gharlogo" />
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse" id="lolo">
+
+                    <partial name="_LoginPartial" />
+
+
+
+                    <ul class="navbar-nav flex-grow-1 ml-4 nvb">
+
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Auth" asp-action="SignIn">Service</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Userproduct" asp-action="Index">Product</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Auth" asp-action="Signin">About</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </nav>
+        </header>
+   
+
+
+
+
+
+
+
+
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+
+
+</body>
+</html>

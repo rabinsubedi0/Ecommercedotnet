@@ -1,0 +1,118 @@
+﻿
+@model ProjectSucess.Models.TotalProduct
+
+    <link href="~/css/create.css" rel="stylesheet" />
+  
+@*<h4 class="jumbotron">Product Form</h4>*@
+
+<body class="crt">
+
+
+    <div class="row">
+        <div class="col-md-3 mt-5">
+            <div class="dashboard">
+                @*<img src="/img/gfffj.png" alt="Alternate Text" height="50" />*@    @*<h1 class="text-center">GhArDailO </h1>*@
+                <h6 class="text-center">GHArDaiLo</h6>
+                <h6 class="text-center">ADMIN</h6>
+                <hr />
+
+                <div class="container ml-4">
+                    <div class="card-img-top">
+                        <div class="items">
+                            <a asp-action="Create" asp-controller="Product" class="lol"><img src="~/Design/spcart.png" height="30" alt="Alternate Text" /> Add Product</a>
+
+                        </div>
+                        <div class="items mt-5">
+                            <a asp-action="Index" asp-controller="Product" class="lol"><img src="~/Design/view.png" height="30" alt="Alternate Text" /> View Product</a>
+
+                        </div>
+                        <div class="items mt-5">
+                            <a asp-action="Edit" asp-controller="Product" class="lol"><img src="~/Design/edit.png" height="30" alt="Alternate Text" /> Edit Product</a>
+
+                        </div>
+
+                        <div class="items mt-5">
+                            <a href="#" class="lol"><img src="~/Design/user.png" height="30" alt="Alternate Text" />User Information</a>
+
+                        </div>
+
+                        <div class="items mt-5">
+                            <a href="#" class="lol"><img src="~/Design/sale.png" height="30" alt="Alternate Text" />Monthly Sales</a>
+
+                        </div>
+
+                        <div class="items mt-5">
+                            <a href="#" class="lol"><img src="~/Design/year.png" height="30" alt="Alternate Text" />Yearly Sales</a>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-6 container mt-5">
+            <div class="brd align-content-md-center crt">
+
+
+                <form method="post" asp-action="Create" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label asp-for="ProductName" class="control-label text-white font-weight-bold"></label>
+                        <input asp-for="ProductName" class="form-control" />
+                        <span class="text-danger" asp-validation-for="ProductName"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="ProductPrice" class="control-label text-white font-weight-bold"></label>
+                        <input asp-for="ProductPrice" class="form-control" />
+                        <span class="text-danger" asp-validation-for="ProductPrice"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Stock" class="control-label text-white font-weight-bold"></label>
+                        <input asp-for="Stock" class="form-control" />
+                        <span class="text-danger" asp-validation-for="Stock"></span>
+                    </div>
+
+                    <div class="form-group">
+
+                        <input asp-for="ProductImage" />
+                    </div>
+                    <div class="form-group">
+                        <select asp-for="CategoryId" asp-items="ViewBag.CategoryList" class="form-control">
+                            <option value="">----Select Category----</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Manufacture" class="control-label text-white font-weight-bold"></label>
+                        <input asp-for="Manufacture" class="form-control" />
+                        <span class="text-danger" asp-validation-for="Manufacture"></span>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label asp-for="Expire" class="control-label text-white font-weight-bold"></label>
+                        <input asp-for="Expire" class="form-control" />
+                        <span class="text-danger" asp-validation-for="Expire"></span>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label asp-for="ProductDescription" class="control-label text-white font-weight-bold"></label>
+                        <input asp-for="ProductDescription" class="form-control" />
+                        <span asp-validation-for="ProductDescription" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="Submit" class="btn btn-primary" value="Create" />
+                        <a asp-action="Index" class="btn btn-danger">Cancel</a>
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,47 @@
+﻿.card {
+    background: white;
+}
+
+  .card:hover {
+        background-color:blanchedalmond;
+    }
+  a{
+      color:black;
+  }
+
+    a:hover {
+        background: blanchedalmond;
+    }
+
+#mak {
+    height: 27px;
+    margin-left: 50px;
+    font-size: 10px;
+    text-align: center;
+    border: 1px solid #2abbe8;
+    background: #2abbe8;
+    color: #fff;
+    border-radius: 0px;
+    width: 70px;
+}
+
+div{
+    overflow:hidden;
+}
+/**/
+#lo {
+    height: 30px;
+    width: 200px;
+    margin-left: 500px;
+    font-size: 15px;
+    text-align: center;
+    border: 1px solid #2abbe8;
+    background: #2abbe8;
+    color: #fff;
+    border-radius: 0px;
+}
+
+#commentsection {
+    width: 700px;
+    height:100px;
+}

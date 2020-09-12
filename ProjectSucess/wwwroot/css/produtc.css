@@ -1,0 +1,57 @@
+﻿body {
+}
+/*for buy and add to cart button*/ 
+#makuri {
+    height: 50px;
+    margin-left:128px;
+    width: auto;
+}
+
+#mak {
+    height: 21px;
+    margin-left: 50px;
+    font-size: 10px;
+    text-align: center;
+    border: 1px solid #2abbe8;
+    background: #2abbe8;
+    color: #fff;
+    border-radius: 0px;
+    width: 70px;
+}
+
+#addtocart {
+    height: 27px;
+    margin-left: 100px;
+    font-size: 10px;
+    border-radius:0px;
+    border: 1px solid #f57224;
+    background: #f57224;
+    color: #fff;
+    text-align: center;
+    width: 70px;
+}
+
+
+
+
+/*for manage top section of home page */
+
+#producsection{
+    margin-top:100px;
+}
+
+/*//for manage buy product image information or others attribuits //*/
+#BuyImage {
+    height: 50%;
+    width:50%;
+   
+}
+#buysystem{
+    background-color:white;;
+}
+#infomation{
+    margin-left:-100px;;
+}
+
+
+

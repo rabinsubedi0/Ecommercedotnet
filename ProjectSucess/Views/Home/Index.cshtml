@@ -1,0 +1,167 @@
+﻿@model List<ProjectSucess.Models.Category>
+
+<link href="~/css/produtc.css" rel="stylesheet" />
+<link href="~/css/crs.css" rel="stylesheet" />
+<link href="~/css/site.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+
+
+@using (Html.BeginForm("Index", "Home",FormMethod.Post))
+{
+    <div class="search" id="srbmt">
+
+        <input type="text" id="input" class="searchTerm text-black" placeholder="Search Ghardailo Product">
+        <button type="submit" class="searchButton">
+            <i class="fa fa-search"></i>
+        </button>
+        
+    </div>
+}
+
+
+
+    <section class="bg-white" id="producsection">
+        @foreach (var category in Model)
+        {
+            <p class="ml-5">@category.CategoryName</p>
+            <section>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div id="CategoryId" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                @{
+
+                                    // eta data laai break gara 3 3 ko group ma
+                                    // yo chai khas controller tira garne kaam ho aile yei gardinchu
+                                    List<List<TotalProduct>> groupedProducts = new List<List<TotalProduct>>();
+
+                                    int categoryKoTotalCount = category.TotalProducts.Count;
+                                    int adjustment = categoryKoTotalCount %3;
+                                    int times = categoryKoTotalCount/3;
+                                    int itrCount = 0;
+
+                                    for (int count = 0; count <= times; count+= 3)
+                                    {
+
+                                        List<TotalProduct> tp = new List<TotalProduct>();
+
+                                        if (times == itrCount)
+                                        {
+                                            if (adjustment == 0)
+                                            {
+                                                // kei adjust garnu pardaina because pardaina
+                                                break;
+                                            }
+
+                                            // theek cha ya samma kaam garcha baki ko lai garnu paryo
+                                            // reached the limit adjust garum
+                                            // :D
+                                            do
+                                            {
+                                                adjustment--;
+
+                                                var item = category.TotalProducts[times + adjustment];
+
+                                                tp.Add(item);
+
+                                            } while (adjustment > 3);
+                                            groupedProducts.Add(tp);
+                                            break;
+                                        }
+                                        var first = category.TotalProducts[count];
+                                        tp.Add(first);
+                                        var sec = category.TotalProducts[count +1];
+                                        tp.Add(sec);
+                                        var thr = category.TotalProducts[count +2];
+                                        tp.Add(thr);
+
+
+                                        groupedProducts.Add(tp);
+                                        itrCount++;
+                                    }
+
+                                    List<TotalProduct> tpp = new List<TotalProduct>();
+                                    // do
+                                    //{
+                                    // adjustment--;
+                                    // var item = category.TotalProducts[categoryKoTotalCount - adjustment -1 ];
+                                    // tpp.Add(category.TotalProducts.GetRange(categoryKoTotalCount - adjustment, adjustment).ToList());
+                                    // } while (adjustment > 0);
+                                    // groupedProducts.Add(tpp);
+
+                                    List<TotalProduct> prod = category.TotalProducts.GetRange(categoryKoTotalCount - adjustment, adjustment);
+
+                                    groupedProducts.Add(prod);
+
+
+                                    bool isFirstIteration = true;
+                                    foreach (var holder in groupedProducts)
+                                    {
+
+                                        string cls = "active";
+                                        if (!isFirstIteration) cls = "";
+
+                                        <div class="carousel-item @cls">
+                                            <div class="row">
+                                                @for (int counter = 0; counter < holder.Count; counter++)
+                                                {
+                                                    var pro = holder[counter];
+
+                                                    <div class="col-md-4">
+                                                        <div class="" style="width: 300px; margin:auto;">
+                                                            <img src="~/Images/@pro.ImageName" alt="Alternate Text" id="makuri" />
+                                                            <div class="card-body">
+                                                                <h6 class="text-center">@pro.ProductName</h6>
+                                                                <p class="text-center"> Rs @pro.ProductPrice </p>
+                                                                <a class="btn btn-warning" asp-controller="Home" asp-action="Addtocart" asp-route-id="@pro.ProductId" id="addtocart">Buy-Now </a>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                }
+                                            </div>
+                                        </div>
+                                        isFirstIteration = false;
+                                    }
+                                }
+                            </div>
+                            <a class="carousel-control-prev" href="#CategoryId" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#CategoryId" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        }
+    </section>
+
+    @*<nav aria-label="Product Page">
+            @await this.Component.InvokeAsync("Pager", new { pagingList = this.Model })
+        </nav>*@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,109 @@
+﻿@model ProjectSucess.Models.TotalProduct
+<link href="~/css/checkout.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
+<div class="">
+    <div class="row">
+
+
+        <div class="col-md-4">
+            @if (Model.ImageName != null)
+            {
+                <div class="container">
+                    <img src="~/Images/@Model.ImageName" class="img-fluid" height="150" />
+                </div>
+
+            }
+            else
+            {
+                <img src="~/Images/bike-default.png" class="img-fluid img-thumbnail" width="400" height="200" />
+            }
+        </div>
+
+        <div class="col-md-4 mr-4 mt-3">
+            <div class="card">
+                <h5 class="text-center">
+                    Add to cart
+                </h5>
+                <div class="card-body">
+
+                    <div class="form-group">
+                        <label>Quantity</label>
+                        <input type="number" min="1" class="form-control" />
+                        <span class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+            <label>Rate:</label>
+            <h5 class="text-center"> Rs. @Model.ProductPrice</h5>
+        </div>
+                    <div class="form-group">
+                        <label>Total</label>
+                        <input contenteditable id="Price" class="form-control" />
+                        <span contenteditable id="Price" class="text-danger"></span>
+                    </div>
+                    <button id="add" class="btn btn-primary"> Add</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 push-left ml-5" id="sidedone">
+            <form action="/" method="post">
+
+                <div class="form-group ">
+                    <h5 class="text-center">Our Catgeory & Product`s</h5>
+                    <div class="form-group card text-center">
+
+                        <a><img src="~/Design/rice.jpg" height="40" class="mr-5" alt="Alternate Text" />Rice</a>
+                    </div>
+
+                    <div class="form-group card text-center">
+                        <a> <img src="~/Design/vege.jpg" height="40" alt="Alternate Text" /> Vegestable`s</a>
+                    </div>
+
+                    <div class="form-group card text-center">
+                        <a asp-action="Display" asp-controller="Userproduct"> <img src="~/Design/fruits.jpg" height="40" class="mr-5" alt="Alternate Text" />Fruits</a>
+                    </div>
+
+                    <div class="form-group card text-center">
+                        <a> <img src="~/Design/dal.jpg" class="mr-5" height="40" alt="Alternate Text" /> Dal`s</a>
+                    </div>
+                    <div class="form-group card text-center">
+                        <a> <img src="~/Design/flourss.jpg" height="40" class="mr-5" alt="Alternate Text" />FLours</a>
+                    </div>
+
+                    <div class="form-group card text-center">
+                        <a> <img src="~/Design/toy.jpg" class="mr-5" height="40" alt="Alternate Text" />Toy</a>
+                    </div>
+                    <div class="form-group card text-center">
+                        <a> <img src="~/Design/drinks.jpg" height="40" class="mr-5" alt="Alternate Text" /> Drinks</a>
+                    </div>
+                    <div class="form-group card text-center">
+                        <a><img src="~/Design/biscu.png" class="mr-3" height="40" alt="Alternate Text" /> Biscuits</a>
+                    </div>
+                    <div class="form-group card text-center">
+                        <a> <img src="~/Design/milk.png" class="ml-1" height="40" alt="Alternate Text" /> Dairy</a>
+                    </div>
+                    <div class="form-group card text-center">
+                        <a> <img src="~/Design/egg.jpg" height="40" class="mr-5" alt="Alternate Text" />Eggs</a>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(function () {
+        $('#ProductId').on('change', function () {
+            var categoryId = $('#ProductId').val();
+            var param = {
+                category: categoryId
+            }
+            $.get('/Userproduct/GetPriceByproduct?' + $.param(param), function (data) {
+                $('#Price').html(data);
+            });
+        })
+    });
+</script>
